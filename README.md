@@ -8,3 +8,11 @@
 # Event Hubs
 
 # Azure Functions 
+## Scinario 
+- Webhook
+- Timer 
+## output 
+- Azure Event Hubs
+- Azure Queue Storage 
+  - 
+- Azure Blob Storage 
