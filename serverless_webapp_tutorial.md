@@ -61,5 +61,54 @@ az functionapp config appsettings set --name <function app name> -g first-server
 ```
 
 ### 4) Code the Function app 
+- add HTTP Triger Function app with C# or Javascript (Authorization level	: Annonymous) 
 - C# code : https://raw.githubusercontent.com/Azure-Samples/functions-first-serverless-web-application/master/csharp/GetUploadUrl/run.csx 
 - Javascript code : https://raw.githubusercontent.com/Azure-Samples/functions-first-serverless-web-application/master/javascript/GetUploadUrl/index.js 
+
+### 5) Add an environment variable for the storage connection string
+Bash variable 'STORAGE_CONNECTION_STRING' 
+```
+export STORAGE_CONNECTION_STRING=$(az storage account show-connection-string -n <storage account name> -g first-serverless-app --query "connectionString" --output tsv)
+```
+Application setting name 'AZURE_STORAGE_CONNECTION_STRING'
+```
+az functionapp config appsettings set -n <function app name> -g first-serverless-app --settings AZURE_STORAGE_CONNECTION_STRING=$STORAGE_CONNECTION_STRING -o table
+```
+### 6) Configure CORS(cross-origin resource sharing)
+
+### 7) Configure CORS in the Storage account
+```
+az storage cors add --methods OPTIONS PUT --origins '*' --exposed-headers '*' --allowed-headers '*' --services b --account-name <storage account name>
+```
+
+### 8) Modify the web app to upload images
+```
+cd ~/functions-first-serverless-web-application/www/dist
+
+export FUNCTION_APP_URL="https://"$(az functionapp show -n <function app name> -g first-serverless-app --query "defaultHostName" --output tsv)
+
+echo $FUNCTION_APP_URL // for checking 
+
+echo "window.apiBaseUrl = '$FUNCTION_APP_URL'" > settings.js
+
+cat settings.js // to confirm 
+
+export BLOB_BASE_URL=$(az storage account show -n <storage account name> -g first-serverless-app --query primaryEndpoints.blob -o tsv | sed 's/\/$//')
+
+echo $BLOB_BASE_URL
+
+echo "window.blobBaseUrl = '$BLOB_BASE_URL'" >> settings.js
+
+cat settings.js // It should be 2, apiBaseUrl and blobBaseUrl
+
+az storage blob upload -c \$web --account-name <storage account name> -f settings.js -n settings.js // Upload the file to Blob storage.
+```
+
+### 9) Test
+upload test image on the static web site 
+```
+az storage blob list --account-name <storage account name> -c images -o table
+
+az storage blob delete-batch -s images --account-name <storage account name> // to delete 
+```
+
