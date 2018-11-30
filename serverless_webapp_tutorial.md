@@ -59,3 +59,7 @@ az functionapp create -n <function app name> -g first-serverless-app -s <storage
 ```
 az functionapp config appsettings set --name <function app name> -g first-serverless-app --settings FUNCTIONS_EXTENSION_VERSION=~1
 ```
+
+### 4) Code the Function app 
+- C# code : https://raw.githubusercontent.com/Azure-Samples/functions-first-serverless-web-application/master/csharp/GetUploadUrl/run.csx 
+- Javascript code : https://raw.githubusercontent.com/Azure-Samples/functions-first-serverless-web-application/master/javascript/GetUploadUrl/index.js 
