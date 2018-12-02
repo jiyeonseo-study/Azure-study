@@ -112,3 +112,9 @@ az storage blob list --account-name <storage account name> -c images -o table
 az storage blob delete-batch -s images --account-name <storage account name> // to delete 
 ```
 
+## Resize images with Azure Functions
+### 1) Create a blob storage containe
+container named `thumnails`
+```
+az storage container create -n thumbnails --account-name <storage account name> --public-access blob
+```
