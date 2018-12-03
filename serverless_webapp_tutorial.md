@@ -113,8 +113,13 @@ az storage blob delete-batch -s images --account-name <storage account name> // 
 ```
 
 ## Resize images with Azure Functions
-### 1) Create a blob storage containe
+### 1) Create a blob storage container
 container named `thumnails`
 ```
 az storage container create -n thumbnails --account-name <storage account name> --public-access blob
 ```
+
+### 2) Creating new Function with Blob Trigger template named 'ResizeImage'
+- path : images/{name} 
+- Integrate 
+  - 
