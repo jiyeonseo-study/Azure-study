@@ -121,5 +121,10 @@ az storage container create -n thumbnails --account-name <storage account name> 
 
 ### 2) Creating new Function with Blob Trigger template named 'ResizeImage'
 - path : images/{name} 
-- Integrate 
-  - 
+- Integration 
+- function app 
+  - project.json : https://raw.githubusercontent.com/Azure-Samples/functions-first-serverless-web-application/master/csharp/ResizeImage/project.json 
+  - run.csx : https://raw.githubusercontent.com/Azure-Samples/functions-first-serverless-web-application/master/csharp/ResizeImage/run.csx
+  
+### 3) Test
+- 
