@@ -127,4 +127,27 @@ az storage container create -n thumbnails --account-name <storage account name> 
   - run.csx : https://raw.githubusercontent.com/Azure-Samples/functions-first-serverless-web-application/master/csharp/ResizeImage/run.csx
   
 ### 3) Test
-- 
+- check uploaded image 
+```
+az storage blob list --account-name <storage account name> -c images -o table
+```
+- check resized thumnail
+```
+az storage blob list --account-name <storage account name> -c thumbnails -o table
+```
+- get thumbnail URL 
+```
+az storage blob url --account-name <storage account name> -c thumbnails -n <filename> --output tsv
+```
+- delete all images 
+```
+az storage blob delete-batch -s images --account-name <storage account name>
+az storage blob delete-batch -s thumbnails --account-name <storage account name>
+```
+
+## Store image metadata with Azure Cosmos DB
+### 1) create Cosmos DB 
+```
+az cosmosdb create -g first-serverless-app -n <cosmos db account name>
+
+```
