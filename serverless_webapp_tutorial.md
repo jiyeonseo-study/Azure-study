@@ -171,3 +171,23 @@ az cosmosdb collection create -g first-serverless-app -n <cosmos db account name
 - (Integration) Input : Cosmos DB 
 - c# : https://raw.githubusercontent.com/Azure-Samples/functions-first-serverless-web-application/master/csharp/GetImages/run.csx 
 - javascript : https://raw.githubusercontent.com/Azure-Samples/functions-first-serverless-web-application/master/javascript/GetImages/index.js 
+
+## Add image captions with Computer Vision
+- how to use the Computer Vision API from Microsoft Cognitive Services to generate captions for uploaded images 
+- save the captions with the image metadata in Cosmos DB.
+
+### 1) Create a Computer Vision account
+```
+az cognitiveservices account create -g first-serverless-app -n <computer vision account name> --kind ComputerVision --sku F0 -l westcentralus
+```
+
+### 2) Create Function App settings for Computer Vision URL and key
+```
+export COMP_VISION_KEY=$(az cognitiveservices account keys list -g first-serverless-app -n <computer vision account name> --query key1 --output tsv)
+export COMP_VISION_URL=$(az cognitiveservices account show -g first-serverless-app -n <computer vision account name> --query endpoint --output tsv)
+```
+setting on the function app
+```
+az functionapp config appsettings set -n <function app name> -g first-serverless-app --settings COMP_VISION_KEY=$COMP_VISION_KEY COMP_VISION_URL=$COMP_VISION_URL -o table
+```
+
