@@ -149,5 +149,20 @@ az storage blob delete-batch -s thumbnails --account-name <storage account name>
 ### 1) create Cosmos DB 
 ```
 az cosmosdb create -g first-serverless-app -n <cosmos db account name>
-
 ```
+This command was not working in my Azure Portal. created cosmos db via Portal UI.  
+
+create db named `imagesdb` in cosmos db account
+```
+az cosmosdb database create -g first-serverless-app -n <cosmos db account name> --db-name imagesdb
+```
+
+create a new collection named images in the database with a throughput of 400 request units (RUs).
+```
+az cosmosdb collection create -g first-serverless-app -n <cosmos db account name> --db-name imagesdb --collection-name images --throughput 400
+```
+
+
+
+
+
