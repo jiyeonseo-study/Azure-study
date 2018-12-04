@@ -162,7 +162,12 @@ create a new collection named images in the database with a throughput of 400 re
 az cosmosdb collection create -g first-serverless-app -n <cosmos db account name> --db-name imagesdb --collection-name images --throughput 400
 ```
 
+### 2) Save a document to Cosmos DB when a thumbnail is created
+- change integration configuration and code for the function "ResizeImage` 
 
-
-
-
+### 3) Create a function to list images from Cosmos DB
+- template : HttpTrigger 
+- Authorization level	 : Anonymous
+- (Integration) Input : Cosmos DB 
+- c# : https://raw.githubusercontent.com/Azure-Samples/functions-first-serverless-web-application/master/csharp/GetImages/run.csx 
+- javascript : https://raw.githubusercontent.com/Azure-Samples/functions-first-serverless-web-application/master/javascript/GetImages/index.js 
