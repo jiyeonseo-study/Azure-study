@@ -193,3 +193,21 @@ az functionapp config appsettings set -n <function app name> -g first-serverless
 ### 3) update ResizeImage function 
 - c# : https://raw.githubusercontent.com/Azure-Samples/functions-first-serverless-web-application/master/csharp/ResizeImage/run-module5.csx 
 - javascript : https://raw.githubusercontent.com/Azure-Samples/functions-first-serverless-web-application/master/javascript/ResizeImage/index-module5.js
+
+## Add authentication 
+### 1) App Service Authentification  
+- Function app > click "platform" tab next to "Overview" > "Authentication/Authorization"
+
+### 2) Modify the web app to enable authentication
+```
+cd ~/functions-first-serverless-web-application/www/dist
+echo "window.authEnabled = true" >> settings.js
+az storage blob upload -c \$web --account-name <storage account name> -f settings.js -n settings.js
+```
+
+## Clean up resources
+```
+az group delete --name first-serverless-app
+```
+
+- 
