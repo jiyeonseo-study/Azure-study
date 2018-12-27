@@ -1,7 +1,10 @@
 # Creating Chatbot with Bot Framework and Bot Service 
 
+## Environment 
+- Mac OS 
+
 ## Prerequisites 
-- IDE : [Visual Studio 2017](https://visualstudio.microsoft.com/ko/downloads/)
+- [Visual Studio 2017](https://visualstudio.microsoft.com/ko/downloads/)
   - Extensions : Bot Builder Template for Visual Studio 
   - 안타깝게도 Mac에서는 안되는 것 같다... 
     - 이러한 오픈 소스도 있음. [botframework-template-vs-for-mac](https://github.com/User1m/botframework-template-vs-for-mac)
@@ -9,8 +12,7 @@
 - [BotFramework Emulator](https://github.com/Microsoft/BotFramework-Emulator/releases)  
 
 ## Language support
-- C# and Nodejs
-- 이 글에서는 C#으로. 
+- C# and Node. 이 글에서는 C#으로. 
 
 ## Web App Bot
 - Bot Framework + Azure Storage => Bot Service 를 통틀어.
@@ -30,11 +32,14 @@
   - `MessageReceivedAsync` 메서드 : 실제 대화를 처리하는 부분
   - 상단 실행 버튼을 통해 실행 > `http://localhost:3984`
   
-3, Azure CLI로 코드 다운로드 
+3. Azure CLI로 코드 다운로드 
   - 위 2 방법을 CLI로 
   ```
   $ az bot download --name "my-bot-name" --resource-group "my-resource-group"
   ```
+### 3-1) Online Editor 이용
+- Bot Web App > Build > 아래 'Open online code editor'를 통해 코드 수정 후 바로 git commit/push를 통해 수정 가능 
+![online editor](./online_editor.png)
 ### 4) Emulator에서 테스트 
 - New Bot Configuration 을 통해 설정 
 ![bot configuration](./new_bot_config_emulator.png) 
@@ -50,6 +55,8 @@
 
 ## Deploy 
 - Continuous Delivery using Github : https://docs.microsoft.com/en-us/azure/bot-service/bot-service-build-continuous-deployment?view=azure-bot-service-4.0 
+
+## Troubleshooting 
 
 ## Sample Apps
 - [mycheesebot](https://github.com/jiyeonseo/mycheesebot) - nodejs 
