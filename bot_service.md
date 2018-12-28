@@ -26,7 +26,8 @@
   - F0 : Free
   - S1 : Standard
 ### 3) Visual Studio 에서 Project 생성
-1. extension 을 이용한 Bot builder template 이용 
+1. Botbuilder 이용 - [Download V3](https://github.com/Microsoft/BotBuilder-V3/releases/tag/3.19.0.44051_BotBuilder-V3-DotNet?fbclid=IwAR0rW8Jxkj-esP3bLRFJavHiiF-wm2GlsyigDjIHrcL0zMVTHwXAHkrq_Nw) 
+  - download `.zip` file -> unzip -> CSharp -> `.sln` 파일 더블 클릭
 2. Azure Portal > 봇 > Build > download bot source code 하여 폴더 내 `.sln` 파일 더블 클릭
 ![download_bot_source_code](./download_bot_source_code.png)
   - `MessageReceivedAsync` 메서드 : 실제 대화를 처리하는 부분
