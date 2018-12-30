@@ -2,6 +2,8 @@
 
 ## Environment 
 - Mac OS 
+- Bot Builder SDK V3  
+  - [Update] [V4 stable release](https://github.com/Microsoft/BotBuilder)가 나옴.
 
 ## Prerequisites 
 - [Visual Studio 2017](https://visualstudio.microsoft.com/ko/downloads/)
