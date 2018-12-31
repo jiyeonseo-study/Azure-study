@@ -55,6 +55,7 @@
   ```
 ### 6) Azure Portal 에서 확인
 - Test in Web Chat 에서 로컬과 같이 동작하는지 확인 
+  - how to debug : https://stackoverflow.com/questions/47912543/how-to-find-bots-conversationid-when-testing-in-azure-portal-webchat-console 
 
 ## Deploy 
 - Continuous Delivery using Github : https://docs.microsoft.com/en-us/azure/bot-service/bot-service-build-continuous-deployment?view=azure-bot-service-4.0 
