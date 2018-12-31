@@ -61,6 +61,9 @@
 - Continuous Delivery using Github : https://docs.microsoft.com/en-us/azure/bot-service/bot-service-build-continuous-deployment?view=azure-bot-service-4.0 
 
 ## Troubleshooting 
+### error 502 on 'Test in Web Chat'
+- you have to manage a custom state now, you can't just use Microsoft temporary state it's only good for local testing.
+- https://stackoverflow.com/questions/52006682/bot-throwing-502-bad-gateway-on-test 
 
 ## Sample Apps
 - [mycheesebot](https://github.com/jiyeonseo/mycheesebot) - nodejs 
