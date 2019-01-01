@@ -67,6 +67,7 @@
 
 ## Sample Apps
 - [mycheesebot](https://github.com/jiyeonseo/mycheesebot) - nodejs 
+- [cheesecheeseball](https://github.com/jiyeonseo/cheesecheeseball) - C# + Bot Builder SDK 3 
 
 ## More resources 
 - Azure Dev Doc(SDK 4.x) : https://docs.microsoft.com/en-us/azure/bot-service/?view=azure-bot-service-4.0 
